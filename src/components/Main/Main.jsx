@@ -12,7 +12,6 @@ export default function Main() {
   const handleChange = e => {
     e.preventDefault();
     searchPokemon(e.target.value)
-    //setInput(e.target.value);
   }
 
 
