@@ -5,35 +5,60 @@ import Footer from './components/Footer'
 import { BrowserRouter} from 'react-router-dom';
 import './styles/styles.scss'
 // import { userState, useState } from 'react';
-import { useState } from 'react';
-import {userContext} from './context/userContext';
+import { useState, useEffect } from 'react';
+import {pokemonContext} from './context/pokemonContext';
+import axios from 'axios'
+import { useDebounce } from "use-debounce";
 
 function App() {
+  const [value, setValue] = useState(""); // Para guardar el dato a buscar
+  const [pokemon, setPokemons] = useState([]); // Para guardar los posts
+  const [unico, setUnico] = useState({});
+  const [input, setInput] = useState("");
+  const [debouncedInput] = useDebounce(input, 1500);
+
+  // equivale a un componentDidUpdate()
+  useEffect(() => {
+    async function fetchData() {
+      try{
+        // Petición HTTP
+        
+        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${debouncedInput}`);
+        const json = res.data;
+        setUnico(json)
+        setPokemons([json,...pokemon]);
   
-const [user, setUser] = useState("Alvaru"); //hook UseState
+      }catch(e){
+        setPokemons([]) // No pintes nada
+      }
+    }
+    fetchData();
+  }, [debouncedInput]);
+ 
+  const searchPokemon = (value) =>{
+    setInput(value)
+  }
 
-//login
-const login = (name) =>{
-   setUser(name);
-}
 
-//logout
-const logout = () =>{
-  setUser("");
-}
 
-const data = {
-  user,
-  login,
-  logout
-}
+  const createPoke = (value) => {
+    setPokemons([...pokemon, value])
+  }
+
+  const pokObj = {
+    pokemon,
+    unico,
+    searchPokemon,
+    createPoke
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
-      <userContext.Provider value={data}>
+      <pokemonContext.Provider value={pokObj}>
       <Header/>
       <Main/>
-      </userContext.Provider>
+      </pokemonContext.Provider>
       </BrowserRouter>
       <Footer/>
     </div>
