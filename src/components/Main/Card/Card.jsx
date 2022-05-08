@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { pokemonContext } from '../../../context/pokemonContext';
+
 
 const Card = (props) => {
    const pokemon = props.data;
+   const {searchPokemon} = useContext(pokemonContext);
+   const handleChange = e => {
+    e.preventDefault();
+    searchPokemon(e.target.value)
+  }
 
   return    <section>
-             
+              <form>
+                <input name="topic" className='busqueda' onChange={handleChange} />
+              </form>
               {pokemon.sprites === undefined? 
                 <div>
                 </div>: 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
-import logo from '../../assets/logopoke.png'
+import logo from '../../assets/pokeballs.png'
 export class Header extends Component {
   render() {
     return (
       <header className='header'>
-         <img src={logo} alt='logo' style={{width: 100}}></img>
+         <img src={logo} alt='logo' style={{width: 160}}></img>
         <Nav/>
  
         </header>

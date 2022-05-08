@@ -8,29 +8,26 @@ import { pokemonContext } from '../../context/pokemonContext';
 
 export default function Main() {
 
-  const {searchPokemon, unico, pokemon} = useContext(pokemonContext);
+  const {unico, pokemon} = useContext(pokemonContext);
   
-  const handleChange = e => {
-    e.preventDefault();
-    searchPokemon(e.target.value)
-  }
+  // const handleChange = e => {
+  //   e.preventDefault();
+  //   searchPokemon(e.target.value)
+  // }
 
 
-  console.log(unico)
+  // console.log(unico)
   return (
     <main>
     <img className='logoinicial' src={logopoke} alt="logopokemon"/>
     <h1 className='welcome'> WELCOME TO THE POKEDEX</h1>
-              <form>
-                <input name="topic" className='busqueda' onChange={handleChange} />
-              </form>
+             
     <Routes>
-       <Route element={<Create/>} path='/newpoke'/>
-       <Route element={<Card data={unico}/>} path='/card'/>
-       <Route element={
+    <Route element={
          pokemon.map((poke,i)=><ListaPokemon data={poke} key={i}/>)
-         } path='/listapokemon'/>
-    
+         } path='/'/>
+       <Route element={<Create/>} path='/newpoke'/>
+       <Route element={<Card data={unico}/>} path='/search'/>
     </Routes>
     
     </main>
