@@ -19,9 +19,13 @@ function App() {
   // equivale a un componentDidUpdate()
   useEffect(() => {
     async function fetchData() {
+      console.log(pokemon.length,"hola desde pokemon")
+      // if(pokemon.every((pokeInfo) => pokeInfo.name.toLowerCase() !== debouncedInput.toLowerCase())){
+      //   console.log("hola desde aqui dentro")
+      // }
+  //  if(pokemon.length >= 0 || pokemon.every((pokeInfo) => pokeInfo.name.toLowerCase() !== debouncedInput.toLowerCase())){
       try{
-        // Petición HTTP
-        
+        // Petición HTTP  
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${debouncedInput}`);
         const json = res.data;
         setUnico(json)
@@ -30,9 +34,15 @@ function App() {
       }catch(e){
         setPokemons([]) // No pintes nada
       }
+    // }else {
+    //   alert('you already have this pokemon registered in your pokedex!')
+    // }
     }
     fetchData();
-  }, [debouncedInput]);
+  },
+  // eslint-disable-next-line
+   [debouncedInput]
+   );
  
   const searchPokemon = (value) =>{
     setInput(value)

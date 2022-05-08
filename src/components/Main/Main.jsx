@@ -3,6 +3,7 @@ import logopoke from '../../assets/logopoke.png'
 import { Route,Routes } from 'react-router-dom'
 import Card from './Card'
 import ListaPokemon from './ListaPokemon'
+import Create from './Create'
 import { pokemonContext } from '../../context/pokemonContext';
 
 export default function Main() {
@@ -24,10 +25,12 @@ export default function Main() {
                 <input name="topic" className='busqueda' onChange={handleChange} />
               </form>
     <Routes>
+       <Route element={<Create/>} path='/newpoke'/>
        <Route element={<Card data={unico}/>} path='/card'/>
-    <Route element={
-      pokemon.map((poke,i)=><ListaPokemon data={poke} key={i}/>)
-    } path='/listapokemon'/>
+       <Route element={
+         pokemon.map((poke,i)=><ListaPokemon data={poke} key={i}/>)
+         } path='/listapokemon'/>
+    
     </Routes>
     
     </main>

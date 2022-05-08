@@ -16,20 +16,20 @@ const Create = () => {
   }
 
   if (page) {
-    return <Navigate to='/list' />
+    return <Navigate to='/listapokemon' />
    }
   
 
   return <div className="create">
     <form onSubmit={handleSubmit(onSubmit)} className="createPoke">
       <div>
-        <label>Name: <input {...register("name")} minLength='3' required/></label>
+        <label>NAME: <input {...register("name")} minLength='3' required/></label>
       </div>
       <div>
-        <label>Number: <input {...register("number")} required/></label>
+        <label>ID: <input {...register("number")} required/></label>
       </div>
       <div>
-        <label>Type: <select required {...register("type")}>
+        <label>TYPE: <select required {...register("type")}>
           <option value="bug">Bug</option>
           <option value="dark">Dark</option>
           <option value="dragon">Dragon</option>
