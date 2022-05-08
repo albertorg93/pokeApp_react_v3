@@ -23,17 +23,18 @@ const Create = () => {
 
   return <div className="create">
     <form onSubmit={handleSubmit(onSubmit)} className="createPokemon">
-      <div>
-        <label>ID: <input {...register("id")} required type='number'/></label>
-      </div>
-      <div>
-        <label>NAME: <input {...register("name")} minLength='3' required/></label>
-      </div>
-      {/* <div>
-        <label>PICTURE: <input type="text" {...register("picture")} required/></label>
-      </div>
-      <div>
-        <label>TYPE: <select required {...register("type")}>
+    
+        <label>ID:</label>
+        <input {...register("id")} required type='number'/>
+     
+        <label>NAME:</label>
+        <input {...register("name")} minLength='3' required/>
+    
+        <label>PICTURE:</label>
+        <input type="text" {...register("image")} required/>
+    
+        <label>TYPE:</label>
+        <select required {...register("typeOne")}>
           <option value="bug">Bug</option>
           <option value="dark">Dark</option>
           <option value="dragon">Dragon</option>
@@ -52,11 +53,10 @@ const Create = () => {
           <option value="rock">Rock</option>
           <option value="steel">Steel</option>
           <option value="water">Water</option>
-        </select></label>
-      </div> */}
-      <div>
-        <label>WEIGHT: <input {...register("weight")} required type='number'/></label>
-      </div>
+        </select>
+     
+        <label>WEIGHT: </label>
+        <input {...register("weight")} required type='number'/>
      
       <input type="submit" className="btn-grad"/>
     </form>
