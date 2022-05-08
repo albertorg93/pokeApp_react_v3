@@ -1,5 +1,6 @@
 @import '../utils/variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Tapestry&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gorditas&display=swap');
 
 .nav{
     display: flex;
@@ -9,10 +10,12 @@
     width: 50%;
     &__element {
         text-decoration:none;
-        color: $text-color;
+        color: #FDFC0A;
         margin: 0 0.25rem;
         // font-family: 'Tapestry', cursive;
-        font-family: monospace;
-        font-size: 1.2rem;
+        // font-family: monospace;
+        font-family: 'Gorditas', cursive;
+        font-size: 1.3rem;
+        font-weight: bold;
     }
 }

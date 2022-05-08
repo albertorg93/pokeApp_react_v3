@@ -11,7 +11,6 @@ import axios from 'axios'
 import { useDebounce } from "use-debounce";
 
 function App() {
-  const [value, setValue] = useState(""); // Para guardar el dato a buscar
   const [pokemon, setPokemons] = useState([]); // Para guardar los posts
   const [unico, setUnico] = useState({});
   const [input, setInput] = useState("");

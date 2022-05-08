@@ -19,7 +19,7 @@ export default function Main() {
   return (
     <main>
     <img className='logoinicial' src={logopoke} alt="logopokemon"/>
-    <h1> Bienvenido a la Pokedex</h1>
+    <h1 className='welcome'> WELCOME TO THE POKEDEX</h1>
               <form>
                 <input name="topic" className='busqueda' onChange={handleChange} />
               </form>
