@@ -4,6 +4,7 @@ import Card from './Card'
 
 const ListaPokemon = () => {
   const {pokemon} = useContext(pokemonContext);
+  // console.log(pokemon,"pokemon desde listapokemon")
   return    <section>
               {pokemon.map((poke,i)=><Card data={poke} key={i}/>)}    
               

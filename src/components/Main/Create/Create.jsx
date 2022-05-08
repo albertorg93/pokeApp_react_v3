@@ -8,25 +8,29 @@ const Create = () => {
 
   const { register, handleSubmit } = useForm();
   const {createPoke} = useContext(pokemonContext);
-  const [page, setPage] = useState(false);
+  const [created, setPage] = useState(false);
 
   const onSubmit = data => {
+    console.log(data,"esto es data")
     createPoke(data);
     setPage(true);
   }
 
-  if (page) {
-    return <Navigate to='/listapokemon' />
+  if (created) {
+    return <Navigate to='/' />
    }
   
 
   return <div className="create">
-    <form onSubmit={handleSubmit(onSubmit)} className="createPoke">
+    <form onSubmit={handleSubmit(onSubmit)} className="createPokemon">
+      <div>
+        <label>ID: <input {...register("id")} required type='number'/></label>
+      </div>
       <div>
         <label>NAME: <input {...register("name")} minLength='3' required/></label>
       </div>
-      <div>
-        <label>ID: <input {...register("number")} required/></label>
+      {/* <div>
+        <label>PICTURE: <input type="text" {...register("picture")} required/></label>
       </div>
       <div>
         <label>TYPE: <select required {...register("type")}>
@@ -49,10 +53,11 @@ const Create = () => {
           <option value="steel">Steel</option>
           <option value="water">Water</option>
         </select></label>
-      </div>
+      </div> */}
       <div>
-        <label>Picture: <input type="text" {...register("picture")}/></label>
+        <label>WEIGHT: <input {...register("weight")} required type='number'/></label>
       </div>
+     
       <input type="submit" className="btn-grad"/>
     </form>
   </div>;

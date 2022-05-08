@@ -4,6 +4,7 @@ import { Route,Routes } from 'react-router-dom'
 import Form from './Form'
 import ListaPokemon from './ListaPokemon'
 import Create from './Create'
+import Home from './Home'
 
 export default function Main() {
 
@@ -13,9 +14,11 @@ export default function Main() {
     <h1 className='welcome'> WELCOME TO THE POKEDEX</h1>
              
     <Routes>
-       <Route element={<ListaPokemon/>}  path='/'/>
-       <Route element={<Create/>} path='/newpoke'/>
+       <Route element={<Home/>} path='/home'/>
        <Route element={<Form/>} path='/search'/>
+       <Route element={<ListaPokemon/>}  path='/'/>
+       <Route element={<Create/>} path='/new'/>
+       
     </Routes>
     
     </main>

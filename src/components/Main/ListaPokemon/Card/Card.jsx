@@ -3,21 +3,23 @@ import React from 'react'
 
 const Card = (props) => {
    const infopoke = props.data;
-
+   console.log(infopoke,"pokemon desde card")
   return    <section>
-              {infopoke.sprites === undefined? 
+              {infopoke === undefined? 
                 <div>
+                  <h1>holaa</h1>
                 </div>: 
                           <section className="searchedPoke">
                           <div className='pokeinfo'>
-                          <p>Name: {infopoke.name}</p>
                           <p>Id: {infopoke.id}</p>
-                          <p>Height: {infopoke.height}</p>
+                          <p>Name: {infopoke.name}</p>
+                          {/* <img className='imagenpoke' src={infopoke.sprites.other.dream_world.front_default} alt='pokemon'/> */}
+                          {/* <p>Type: {infopoke.types[0].type.name}</p> */}
                           <p>Weight: {infopoke.weight}</p>
-                          <img className='imagenpoke' src={infopoke.sprites.other.dream_world.front_default} alt='pokemon'/>
+                          
                           </div>
                           </section>                                
-              }
+               }
 
             </section>
 };
