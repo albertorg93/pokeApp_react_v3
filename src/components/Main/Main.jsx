@@ -14,9 +14,9 @@ export default function Main() {
     <h1 className='welcome'> WELCOME TO THE POKEDEX</h1>
              
     <Routes>
-       <Route element={<Home/>} path='/home'/>
+       <Route element={<Home/>} path='/'/>
        <Route element={<Form/>} path='/search'/>
-       <Route element={<ListaPokemon/>}  path='/'/>
+       <Route element={<ListaPokemon/>}  path='/lista'/>
        <Route element={<Create/>} path='/new'/>
        
     </Routes>

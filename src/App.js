@@ -19,14 +19,25 @@ function App() {
   // equivale a un componentDidUpdate()
   useEffect(() => {
     async function fetchData() {
+      //  console.log(pokemon[pokemon.length-1],"este es el ultimo pokemon buscado")
    if(pokemon.length === 0 || pokemon.every((pokeInfo) => pokeInfo.name !== debouncedInput)){
       try{
         // Petición HTTP  
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${debouncedInput}`);
         const json = res.data;
-        setUnico(json)
-        setPokemons([json,...pokemon]);
-  
+        const poke = {
+          name: json.name,
+          id: json.id,
+          image: json.sprites.other.dream_world.front_default,
+          // image1: data.sprites.back_default,
+          // image2: data.sprites.front_shiny,
+          // image3: data.sprites.back_shiny,
+          typeOne: json.types[0].type.name,
+          // typeTwo: data.types.length > 1 ? data.types[1].type.name : null,
+          weight: json.weight,
+        };
+        setUnico(poke)
+        setPokemons([poke,...pokemon]);
       }catch(e){
         setPokemons([]) // No pintes nada
       }
@@ -47,7 +58,7 @@ function App() {
 
 
   const createPoke = (value) => {
-    setPokemons([...pokemon, value])
+    setPokemons([value,...pokemon])
   }
 
   const pokObj = {

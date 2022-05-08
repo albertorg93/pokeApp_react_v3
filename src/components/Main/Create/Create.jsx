@@ -17,7 +17,7 @@ const Create = () => {
   }
 
   if (created) {
-    return <Navigate to='/' />
+    return <Navigate to='/lista' />
    }
   
 

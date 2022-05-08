@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Gorditas:wght@700&display=swap');
+
+
+.home{
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: rgb(254, 233, 77);
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 7%;
+    box-shadow: 13px 15px 19px 1px rgba(10, 10, 8, 0.75);
+    -webkit-box-shadow: 13px 15px 19px 1px rgba(6, 6, 5, 0.75);
+    -moz-box-shadow: 13px 15px 19px 1px rgba(4, 4, 3, 0.75);
+}
+
+.home h1{
+    font-family: 'Gorditas', cursive;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
